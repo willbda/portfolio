@@ -53,11 +53,46 @@ Jupyter notebooks demonstrating analytical work. All use synthetic data generate
 
 ### Happy to Have Lived
 
-A native iOS/macOS/visionOS application for structured goal planning and progress tracking. Built with Swift 6.2 and SwiftUI, it uses a three-layer architecture: normalized SQLite models (via GRDB), flat Codable data types for UI, and validated form data for input. A centralized `@Observable` DataStore bridges GRDB's `ValueObservation` to SwiftUI — the database pushes changes, the store holds state, and views react automatically.
+**A goal-planning app that starts with what matters, not what's due.**
 
-Key features: hierarchical goals (goals, milestones, obligations, commitments), measurable progress tracking, Apple Health integration for importing workouts as actions, ten-week planning terms, and full JSON backup/restore. Currently in active development toward v1.0.
+Happy to Have Lived begins with values: what do you think is worthwhile? From there, you define goals that connect to those values, set time-boxed terms to focus your energy, and record actions — including imports from Apple Health. The Reflect tab shows how your values, goals, and actions connect, so you can see whether what you're doing aligns with what you care about.
 
-**Stack:** Swift 6.2, SwiftUI, GRDB, SQLite, HealthKit, AppIntents
+#### Why this exists
+
+I built this for myself. I'd been using various goal-tracking systems — spreadsheets, journaling, habit apps — and none of them captured the thing that actually mattered: whether the goals I was pursuing reflected what I valued, or just what felt urgent. I wanted a system where the first question is "what do you value?" and everything else flows from the answer.
+
+The ten-week term structure comes from my own practice. Long enough to make real progress, short enough that the end is always visible. Each term is a chapter with a focus, not an open-ended to-do list.
+
+#### How it works
+
+The app is organized around four tabs:
+
+- **Now** — Today's view. What's active, what needs attention, a daily greeting.
+- **Plan** — Define values, set goals, create time-boxed terms. The facilitated start flow walks new users through articulating what matters before asking them to plan anything.
+- **Record** — Log actions toward your goals. Import workouts from Apple Health so exercise counts as progress without manual entry.
+- **Reflect** — See patterns. Value Connections shows which values your goals serve. Review past terms to understand what worked.
+
+#### Screenshots
+
+| Facilitated Start | Now | Plan | Reflect |
+|:-:|:-:|:-:|:-:|
+| ![Onboarding](happy-to-have-lived/screenshots/01-facilitated-start.png) | ![Daily view](happy-to-have-lived/screenshots/02-now.png) | ![Planning](happy-to-have-lived/screenshots/03-plan.png) | ![Reflection](happy-to-have-lived/screenshots/04-reflect.png) |
+| Begin with what matters | Today's focus | Values → goals → terms | See how it connects |
+
+| Values | Record |
+|:-:|:-:|
+| ![Values entry](happy-to-have-lived/screenshots/05-values.png) | ![Actions + Health](happy-to-have-lived/screenshots/06-record.png) |
+| Articulate what you value | Log actions, import from Health |
+
+#### Architecture
+
+This is the project where I went deep on Swift and domain modeling. Unlike RunningBehind (where I prioritized shipping), Happy to Have Lived is where I practiced building a real data model from first principles — asking what a goal actually *is*, what it means for a value to connect to an action, how to represent progress without flattening it into a percentage.
+
+Three-layer Swift Package Manager structure with normalized SQLite models (via GRDB), a centralized `@Observable` DataStore that bridges database observation to SwiftUI, and on-device language generation via Apple Intelligence. The database pushes changes, the store holds state, views react automatically.
+
+**Stack:** Swift 6.2, SwiftUI, GRDB, SQLite, HealthKit, Apple Intelligence (Foundation Models), AppIntents
+
+Currently in active development toward v1.0. This app is approved for testing via Apple TestFlight: https://testflight.apple.com/join/rrpQRxYJ
 
 ### RunningBehind
 
