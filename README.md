@@ -26,11 +26,39 @@ Key features: hierarchical goals (goals, milestones, obligations, commitments), 
 
 ### RunningBehind
 
-A location-aware departure calculator for people with time blindness. Unlike standard "leave in 15 minutes" alerts, RunningBehind answers: *"What pace do I need to walk right now to arrive on time?"* It continuously recalculates required walking speed as time passes, translating abstract time into an embodied, physical metric.
+**A departure calculator for people who lose track of time.**
 
-Built with accessibility conformance, AppIntents integration (Siri, Shortcuts, Control Center widgets), and background GPS for live journey tracking. The architecture uses protocol-oriented design with a state machine governing the departure lifecycle (idle → preparing → departed → arrived).
+Standard calendar alerts say "leave in 15 minutes." That's abstract — 15 minutes from now is a feeling, not a fact. RunningBehind answers a different question: *What pace do I need to walk right now to arrive on time?* It continuously recalculates as time passes, translating a countdown into something physical and embodied — a walking speed you can feel.
 
-**Stack:** Swift, SwiftUI, MapKit, CoreLocation, EventKit, ActivityKit (Live Activities)
+#### Why this exists
+
+Someone close to me lives with time blindness. The problem isn't not knowing when to leave — it's that "20 minutes" and "5 minutes" feel the same until it's too late. RunningBehind reframes departure as a physical relationship between your body and a destination. When the required pace shifts from "easy stroll" to "brisk walk" to "you'd better run," that's legible in a way a ticking number isn't.
+
+#### How it works
+
+You pick a destination and an arrival time. The app calculates a route, factors in your prep time (coat, keys, shoes) and arrival buffer (parking, elevator, finding the room), and tells you: *right now, you'd need to walk at 3.2 mph.* That number updates live. As time passes without you leaving, the pace climbs. Color-coded urgency — green, amber, red — makes the state immediately visible.
+
+Once you depart, GPS tracking switches the display: now it shows your actual pace against the required pace, so you know if you're on track or need to pick it up.
+
+**Key features:**
+- Real-time pace calculation with urgency visualization
+- Prep checklists with live time recalculation as you check items off
+- Calendar integration — upcoming events surface as suggested destinations
+- Custom travel modes (walking, cycling, driving) with per-mode speed units
+- Live Activities on the lock screen during active journeys
+- Journey history for reviewing patterns
+
+#### Architecture
+
+Three-layer Swift Package Manager structure: **Models** (pure domain types, zero framework dependencies), **Database** (GRDB + SQLite with 10 migrations), and **AppServices** (coordinators that orchestrate route calculation, GPS tracking, and journey state). The app layer holds SwiftUI views and a centralized `@Observable` DataStore.
+
+The journey lifecycle is a state machine: **planning → prepping → active → arrived**. Each transition changes what the UI displays and what the system tracks. Coordinators are stateless and testable — `DepartureCoordinator` takes a destination, time, and modality and returns a `DepartureCalculation`. No side effects, no global state.
+
+All domain types are `Sendable` under Swift 6 strict concurrency. External services (MapKit, CoreLocation, EventKit) are abstracted behind protocols, so coordinators can be tested with in-memory fakes.
+
+**Stack:** Swift 6.2, SwiftUI, GRDB, SQLite, MapKit, CoreLocation, EventKit, ActivityKit
+
+**3,600 lines of tests** across domain logic, repositories, and coordinators using Swift Testing with in-memory SQLite.
 
 ## Technical Stack
 
