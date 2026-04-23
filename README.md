@@ -16,15 +16,7 @@ I'm a self-taught programmer with a Ph.D. in Philosophy. Each of the projects be
 
 Before this system, answering "which funders support literacy programs in Hennepin County?" meant hours of manual cross-referencing across a CRM, a spreadsheet, and a shared drive full of nested folders. Preparing for a funder meeting meant opening six tabs and hoping you remembered which subfolder had last year's report. Prospecting meant gut instinct and institutional memory.
 
-GMS is the latest chapter of a longer story. Over my first three years on the team I built a succession of tools to make our work easier — a common-frameworks Word document (the *Enchiridion*) that tried to gather the organization's reusable language in one place; a shared Google Sheet to coordinate the writing schedule with our CRM; a growing collection of frameworks and templates. Each helped, and each showed the same limit: they could hold language, but they couldn't answer a question. What we actually needed was what I described in my last performance review — *"a single source of truth, if we could count on it being always up to date and easy enough to use that it would always be kept up to date."*
 
-Starting in 2025, I began learning the tools to build that — JavaScript, then Python, SQL, and Flask, on my own time and in parallel with the day job. The bulk of the work has been on the data side: modeling the domain honestly so that four source systems with four vocabularies can be joined without flattening what makes each of them different. The web app sits on top of that model, translating the questions colleagues actually ask into queries they don't have to write.
-
-![Organization detail](grant-management-system/screenshots/03-org-detail.png)
-
-*An organization page: lifetime giving, open and closed opportunities, the funder's geographic service area, and their IRS 990 grantmaking history — all in one view.*
-
-> **About the screenshots and data shown here.** Names, dollar amounts, addresses, and documents in the images below comes from a synthetic mock dataset. Geographic polygons are from publicly available TIGER/Line boundaries. Nothing in these screenshots represents my employer's operational data, real funders, or real grant outcomes. The mock exists so the application can be demonstrated without exposing any production information.
 
 #### What it does
 
