@@ -160,16 +160,31 @@ Once you depart, GPS tracking switches the display: now it shows your actual pac
 
 #### Screenshots
 
-| Departure | Destination | Modes | Modality Editor |
-|:-:|:-:|:-:|:-:|
-| ![Departure screen](ample-margin/screenshots/01-departure.png) | ![Destination detail](ample-margin/screenshots/04-destination-detail.png) | ![Travel modes](ample-margin/screenshots/02-modes.png) | ![Custom modality](ample-margin/screenshots/03-modality-editor.png) |
+**Setting up a departure** — pick a place, pick a time, pick how you're traveling:
 
-**Urgency progression** — the same trip as time passes:
-
-| Relaxed | Time passing | Running late | Journey in progress |
+| Empty start | Walking calculated | Detail expanded | Map route |
 |:-:|:-:|:-:|:-:|
-| ![Relaxed](ample-margin/screenshots/05-relaxed-calculation.png) | ![Urgency rising](ample-margin/screenshots/06-urgency-rising.png) | ![Running late](ample-margin/screenshots/07-running-late.png) | ![Journey tracking](ample-margin/screenshots/08-journey-in-progress.png) |
-| 1.3 mph — plenty of time | 1.4 mph — options narrowing | 4.9 mph — you need to leave | Departed — live pace tracking |
+| ![Empty departure](ample-margin/screenshots/iphone/01-departure-empty.png) | ![Walking pace](ample-margin/screenshots/iphone/04-departure-walking-calculated.png) | ![How it was calculated](ample-margin/screenshots/iphone/06-departure-detail-expanded.png) | ![Route on map](ample-margin/screenshots/iphone/07-route-map.png) |
+| empty state — "where are you going?" | 1.2 mph — start getting ready | breakdown of prep + travel | the route, on the map |
+
+**Modes carry their own pace and prep** — same trip, three different bodies:
+
+| Walking | Cycling | A custom mode (Aura — sailing) | Editing a mode |
+|:-:|:-:|:-:|:-:|
+| ![Walking](ample-margin/screenshots/iphone/05-prep-checklist-active.png) | ![Cycling on track](ample-margin/screenshots/iphone/14-journey-cycling-active.png) | ![Aura mode](ample-margin/screenshots/iphone/08-departure-aura-mode.png) | ![Edit mode](ample-margin/screenshots/iphone/19-edit-mode.png) |
+| prep checklist for a walk | live pace, on track, 17 min margin | a user-defined sailing mode | per-mode pace, prep, units |
+
+**Living with it** — places you keep close, history of where you've been, settings:
+
+| Pick a place | Places list | History | Settings |
+|:-:|:-:|:-:|:-:|
+| ![Pick a place modal](ample-margin/screenshots/iphone/15-pick-a-place-modal.png) | ![Places list](ample-margin/screenshots/iphone/16-places-list.png) | ![History](ample-margin/screenshots/iphone/20-history.png) | ![Settings](ample-margin/screenshots/iphone/21-settings.png) |
+
+**On iPad**, the same model in a wider frame:
+
+| Empty | Picking a place | Cycling, planning | Live journey |
+|:-:|:-:|:-:|:-:|
+| ![iPad empty](ample-margin/screenshots/ipad/01-departure-empty.png) | ![iPad pick a place](ample-margin/screenshots/ipad/02-pick-a-place-modal.png) | ![iPad cycling](ample-margin/screenshots/ipad/04-departure-cycling-detail.png) | ![iPad journey](ample-margin/screenshots/ipad/06-journey-cycling-active.png) |
 
 #### Built with AI
 
