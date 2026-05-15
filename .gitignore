@@ -46,3 +46,9 @@ grant-management-system/schema/draft_schema.sql
 CLAUDE.md
 .claude/
 .playwright-cli/*
+
+
+grant-management-system/oregon_sample/scripts/
+grant-management-system/oregon_sample/xml_cache/
+grant-management-system/oregon_sample/geo_data/
+grant-management-system/oregon_sample/funder_data

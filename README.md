@@ -1,10 +1,11 @@
 # David Williams — Portfolio
 
-Three projects, one common thread: each started with a problem I wanted solved.
+Four projects, one common thread: each started with a problem I wanted solved.
 
 - **A grant intelligence platform** I built for me and my colleagues at ServeMinnesota — replacing hours of manual cross-referencing with structured queries, and a web app that makes years of institutional knowledge quickly and deeply queryable for non-technical colleagues.
 - **A value-alignment iOS app** that starts from what you value, helps you structure goals that reflect those values, and tracks the activities that support them — derived from a practice I've been using myself for over a year.
 - **A pace-departure calculator** built for time blindness. Instead of "leave in 15 minutes," it shows the pace you'd need to arrive on time, updated live.
+- **An ambient three-slot intention keeper** for iOS, iPadOS, watchOS, and macOS. Three short lines — the few things you want to keep in front of you today — visible from the lock screen, the watch face, and the menu bar, so you walk past them rather than open the app.
 
 I'm a self-taught programmer with a Ph.D. in Philosophy. Each of the projects began from a workflow I was close enough to see clearly, and I use each one daily. Details about my background, stack, and how to reach me are at the bottom of this page.
 
@@ -161,13 +162,13 @@ Once you depart, GPS tracking switches the display: now it shows your actual pac
 
 | Departure | Destination | Modes | Modality Editor |
 |:-:|:-:|:-:|:-:|
-| ![Departure screen](running-behind/screenshots/01-departure.png) | ![Destination detail](running-behind/screenshots/04-destination-detail.png) | ![Travel modes](running-behind/screenshots/02-modes.png) | ![Custom modality](running-behind/screenshots/03-modality-editor.png) |
+| ![Departure screen](ample-margin/screenshots/01-departure.png) | ![Destination detail](ample-margin/screenshots/04-destination-detail.png) | ![Travel modes](ample-margin/screenshots/02-modes.png) | ![Custom modality](ample-margin/screenshots/03-modality-editor.png) |
 
 **Urgency progression** — the same trip as time passes:
 
 | Relaxed | Time passing | Running late | Journey in progress |
 |:-:|:-:|:-:|:-:|
-| ![Relaxed](running-behind/screenshots/05-relaxed-calculation.png) | ![Urgency rising](running-behind/screenshots/06-urgency-rising.png) | ![Running late](running-behind/screenshots/07-running-late.png) | ![Journey tracking](running-behind/screenshots/08-journey-in-progress.png) |
+| ![Relaxed](ample-margin/screenshots/05-relaxed-calculation.png) | ![Urgency rising](ample-margin/screenshots/06-urgency-rising.png) | ![Running late](ample-margin/screenshots/07-running-late.png) | ![Journey tracking](ample-margin/screenshots/08-journey-in-progress.png) |
 | 1.3 mph — plenty of time | 1.4 mph — options narrowing | 4.9 mph — you need to leave | Departed — live pace tracking |
 
 #### Built with AI
@@ -180,7 +181,49 @@ The app is feature-complete and in testing. Currently used daily by the person I
 
 **Stack:** Swift 6.2, SwiftUI, GRDB, SQLite, MapKit, CoreLocation, EventKit, ActivityKit
 
-Read more: [`building-with-ai.md`](running-behind/building-with-ai.md) — prompting strategy, what I learned, and the user story
+Read more: [`building-with-ai.md`](ample-margin/building-with-ai.md) — prompting strategy, what I learned, and the user story
+
+### Just These Things
+
+**An ambient three-slot intention keeper for the things you want to walk past, not open an app to find.**
+
+Just These Things holds three short lines — *be kind*, *finish the letter to dad*, *walk slowly*. They appear on the iPhone lock screen, the Apple Watch face, the iPad lock screen, and the Mac menu bar. The same three slots, in five densities, none of them shouting. You don't open the app to be reminded; you walk past them.
+
+#### Why this exists
+
+I keep ending up with a single working note that gets shorter as the day goes on — the few things I want to keep in front of me. Reminders apps are good at scheduling and bad at *standing*; widgets are good at standing and bad at being editable; sticky notes are good at standing and editable but only if you happen to be at your desk. I wanted something that did all three: small, persistent, edited from anywhere, present on every surface I look at.
+
+The product commits to **three slots**. Not a list, not a stack, not a project — a shelf. When the shelf is full, replacing one means deciding what comes off, and that small editorial decision is the point.
+
+#### Screenshots
+
+| iPhone — lock | Apple Watch | Mac — menu bar |
+|:-:|:-:|:-:|
+| ![Lock-screen widget](just-these-things/screenshots/05-ios-lock-widget.png) | ![Watch face](just-these-things/screenshots/10-watch-face.png) | ![Menu bar dropdown](just-these-things/screenshots/14-mac-menu-bar.png) |
+| The rectangular widget | A complication and the watch app | Always one click away |
+
+| iPhone — app | iPhone — edit | iPad — lock |
+|:-:|:-:|:-:|
+| ![iOS slots view](just-these-things/screenshots/04-ios-app.png) | ![Edit sheet](just-these-things/screenshots/07-ios-edit.png) | ![iPad lock-screen widgets](just-these-things/screenshots/09-ipad-lock-widgets.png) |
+| The full app — three lines, a date, "look back" | One short line. You can change it whenever. | Reading at arm's length |
+
+The cross-platform pitch — same three things, in five densities:
+
+![The five-surface story](just-these-things/screenshots/03-ambient-cross-platform.png)
+
+#### How it works
+
+The contents of the three slots live in a SwiftData store synced through the user's private CloudKit database, so the same three lines appear on every signed-in device within seconds. The watch projection is a separate, denormalized read model pushed via WatchConnectivity — fast to render on the small surface, written to its own SwiftData container so widget timeline reloads don't contend with the main app's writes.
+
+Editing is intent-driven. The same `SetSlotIntent` backs the in-app editor sheet, Siri ("set thing two to *finish the letter*"), the Shortcuts app, and Spotlight — one App Intent, one validation path, one place where the cardinal voice rules live. Slot indices translate at the boundary: the user thinks 1-based (i / ii / iii); the repository is 0-based.
+
+The brand and the app are designed together. Newsreader italic, ink on bone paper, three earth-tone dots between square brackets — the bracket as the holding shape, the contents as the few things. The icon decomposes into layered SVGs for Icon Composer so the bezel light, depth, and Liquid Glass treatment apply consistently across iOS 26 and macOS 26.
+
+**Stack:** Swift 6.2, SwiftUI, SwiftData (+ CloudKit), AppIntents, WidgetKit, ActivityKit, WatchConnectivity, Icon Composer
+
+In active development. Currently usable on a single device; iCloud sync and watch projection are wired and validating on real hardware.
+
+[`privacy-policy.md`](just-these-things/privacy-policy.md)
 
 ## Technical Stack
 
