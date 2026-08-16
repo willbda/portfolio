@@ -7,13 +7,15 @@ Four projects, one common thread: each started with a problem I wanted solved.
 - **A pace-departure calculator** built for time blindness. Instead of "leave in 15 minutes," it shows the pace you'd need to arrive on time, updated live.
 - **An ambient three-slot intention keeper** for iOS, iPadOS, watchOS, and macOS. Three short lines — the few things you want to keep in front of you today — visible from the lock screen, the watch face, and the menu bar, so you walk past them rather than open the app.
 
-I'm a self-taught programmer with a Ph.D. in Philosophy. Each of the projects began from a workflow I was close enough to see clearly, and I use each one daily. Details about my background, stack, and how to reach me are at the bottom of this page.
+I'm a self-taught programmer with a Ph.D. in Philosophy. Each of the projects began from a workflow I was close enough to see clearly. Details about my background, stack, and how to reach me are at the bottom of this page.
 
 ## What's Here
 
 ### `grant-management-system/`
 
 **A grant intelligence platform for a team managing a public-funding portfolio.**
+
+*Status: built between spring 2025 and mid-2026 for the development team at ServeMinnesota, and wound down when I left in July 2026. It worked, but I had not earned the institutional buy-in that would have carried it forward, so I documented it and handed it over for the team to decide what to keep. What follows describes the system as built. The screenshots are from a sample dataset; no client data appears in this repository.*
 
 Before this system, answering "which funders support literacy programs in Hennepin County?" meant hours of manual cross-referencing across a CRM, a spreadsheet, and a shared drive full of nested folders. Preparing for a funder meeting meant opening six tabs and hoping you remembered which subfolder had last year's report. Prospecting meant gut instinct and institutional memory.
 
@@ -250,13 +252,13 @@ In active development. Currently usable on a single device; iCloud sync and watc
 
 ## About Me
 
-I've been Development Manager at ServeMinnesota since 2021. The systematization instinct has been there from the beginning: first as Word documents and shared spreadsheets, then — starting in 2025 — as real tools. I taught myself JavaScript, then Python, SQL, and Flask; later Swift and domain-driven design. GMS is the fullest expression of that work so far.
+I was Development Manager at ServeMinnesota from 2021 to 2026. The systematization instinct was there from the beginning: first as Word documents and shared spreadsheets, then — starting in 2025 — as real tools. I taught myself JavaScript, then Python, SQL, and Flask; later Swift and domain-driven design. GMS is the fullest expression of that work so far.
 
 My supervisor described the through-line in my 2025 review better than I could: *"I see your drive for learning and process improvement — regularly noticing pain points and asking yourself and others how we might adjust our processes to reduce those pain points and find better approaches."* The systems I build are infrastructure for team capability, not side projects. I also recognize my growing edge: thinking about structure can make simple things slow, and it's easy to get absorbed in a solution's internals when what's wanted is a plain explanation and a clear next step. I work on it.
 
 In October 2024, I defended my Ph.D. in Philosophy at Johns Hopkins (*Six Attempts to Make Sense*). The philosophy background is part of how I approach software: I treat the vocabulary of a problem as something that deserves care before any code is written against it.
 
-Native English, fluent French. Relocating to Geneva, Switzerland in 2026.
+Native English, fluent French. Based in Geneva, Switzerland.
 
 I learn domains by inhabiting problem spaces and asking questions; I build systems by modeling them honestly. My work sits at the intersection of data infrastructure, domain-driven design, and clear writing.
 
