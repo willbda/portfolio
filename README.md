@@ -15,7 +15,7 @@ I'm a self-taught programmer with a Ph.D. in Philosophy. Each of the projects be
 
 **A grant intelligence platform for a team managing a public-funding portfolio.**
 
-*Status: built between spring 2025 and mid-2026 for the development team at ServeMinnesota, and wound down when I left in July 2026. It worked, but I had not earned the institutional buy-in that would have carried it forward, so I documented it and handed it over for the team to decide what to keep. What follows describes the system as built. The screenshots are from a sample dataset; no client data appears in this repository.*
+*Status: built between spring 2025 and mid-2026 for the development team at ServeMinnesota, and wound down when I left in July 2026. It worked, but I had not earned the institutional buy-in that would have carried it forward, so I documented it and handed it over for the team to decide what to keep. What follows describes the system as built. All screenshots are rendered against a synthetic mock database — no real funder, staff, or program names appear.*
 
 Before this system, answering "which funders support literacy programs in Hennepin County?" meant hours of manual cross-referencing across a CRM, a spreadsheet, and a shared drive full of nested folders. Preparing for a funder meeting meant opening six tabs and hoping you remembered which subfolder had last year's report. Prospecting meant gut instinct and institutional memory.
 
